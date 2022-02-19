@@ -14,6 +14,6 @@ const routes = express.Router();
 //Rotas de usuario
 routes.get('/users', service.index);
 routes.post('./users',service.create)
-routes.delete('users/:email', service.delete);
+routes.delete('users/:cpf', service.delete);
 
 module.exports = routes;

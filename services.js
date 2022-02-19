@@ -2,7 +2,7 @@ const connection = require('./DataBase');
 module.exports = {
    
     async create(request, response){
-        const { autor, titulo,text,nome,email} = request.body;
+        const { autor, titulo,text,nome,cpf,email} = request.body;
         const people_id = request.headers.authorization;
 
         const [id] = await connection('users').insert({
@@ -10,6 +10,7 @@ module.exports = {
             titulo,
             text,
             nome,
+            cpf,
             email,
             people_id
         });
@@ -28,6 +29,7 @@ module.exports = {
             .select([
                 'users.*', 
                 'people.name',
+                'people.cpf',
                 'people.email', 
                 'people.whatsapp', 
                 'people.city', 
